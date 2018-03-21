@@ -304,6 +304,14 @@
 		status = "okay";
 	};
 
+	fan: fan {
+		compatible = "pwm-fan";
+		pwms = <&pwm4 0 45334>;
+
+		cooling-levels = <0 64 128 255>;
+		#cooling-cells = <2>;
+	};
+
 	gpio-keys {
 		compatible = "gpio-keys";
 
