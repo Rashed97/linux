@@ -300,6 +300,10 @@
 		};
 	};
 
+	gpu@17000000 {
+		status = "okay";
+	};
+
 	gpio-keys {
 		compatible = "gpio-keys";
 
