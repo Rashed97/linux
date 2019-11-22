@@ -304,6 +304,11 @@
 		status = "okay";
 	};
 
+	extcon-usb-id {
+		compatible = "linux,extcon-usb-gpio";
+		id-gpio = <&pmic 0 GPIO_ACTIVE_HIGH>;
+	};
+
 	gpio-keys {
 		compatible = "gpio-keys";
 
