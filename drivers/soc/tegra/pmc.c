@@ -1841,7 +1841,9 @@ static int tegra_io_pad_pinconf_set(struct pinctrl_dev *pctl_dev,
 static const struct pinconf_ops tegra_io_pad_pinconf_ops = {
 	.pin_config_get = tegra_io_pad_pinconf_get,
 	.pin_config_set = tegra_io_pad_pinconf_set,
+#ifdef CONFIG_GENERIC_PINCONF
 	.is_generic = true,
+#endif
 };
 
 static struct pinctrl_desc tegra_pmc_pctl_desc = {
