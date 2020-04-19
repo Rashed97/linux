@@ -38,6 +38,14 @@
 		gpio-controller;
 	};
 
+	pinmux: pinmux@2430000 {
+		compatible = "nvidia,tegra186-pinmux";
+		reg = <0x2430000 0x15000
+		       0xc300000 0x4000>;
+
+		status = "okay";
+	};
+
 	ethernet@2490000 {
 		compatible = "nvidia,tegra186-eqos",
 			     "snps,dwc-qos-ethernet-4.10";
