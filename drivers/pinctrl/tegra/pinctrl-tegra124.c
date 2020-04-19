@@ -2064,6 +2064,7 @@ static const struct of_device_id tegra124_pinctrl_of_match[] = {
 	{ .compatible = "nvidia,tegra124-pinmux", },
 	{ },
 };
+MODULE_DEVICE_TABLE(of, tegra124_pinctrl_of_match);
 
 static struct platform_driver tegra124_pinctrl_driver = {
 	.driver = {
@@ -2072,9 +2073,14 @@ static struct platform_driver tegra124_pinctrl_driver = {
 	},
 	.probe = tegra124_pinctrl_probe,
 };
+module_platform_driver(tegra124_pinctrl_driver);
 
 static int __init tegra124_pinctrl_init(void)
 {
 	return platform_driver_register(&tegra124_pinctrl_driver);
 }
 arch_initcall(tegra124_pinctrl_init);
+
+MODULE_AUTHOR("Ashwini Ghuge <aghuge@nvidia.com>");
+MODULE_DESCRIPTION("NVIDIA Tegra124 pinctrl driver");
+MODULE_LICENSE("GPL v2");

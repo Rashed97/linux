@@ -2261,6 +2261,7 @@ static const struct of_device_id tegra20_pinctrl_of_match[] = {
 	{ .compatible = "nvidia,tegra20-pinmux", },
 	{ },
 };
+MODULE_DEVICE_TABLE(of, tegra20_pinctrl_of_match);
 
 static struct platform_driver tegra20_pinctrl_driver = {
 	.driver = {
@@ -2269,9 +2270,14 @@ static struct platform_driver tegra20_pinctrl_driver = {
 	},
 	.probe = tegra20_pinctrl_probe,
 };
+module_platform_driver(tegra20_pinctrl_driver);
 
 static int __init tegra20_pinctrl_init(void)
 {
 	return platform_driver_register(&tegra20_pinctrl_driver);
 }
 arch_initcall(tegra20_pinctrl_init);
+
+MODULE_AUTHOR("Stephen Warren <swarren@nvidia.com>");
+MODULE_DESCRIPTION("NVIDIA Tegra20 pinctrl driver");
+MODULE_LICENSE("GPL v2");

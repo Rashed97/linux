@@ -968,3 +968,7 @@ int tegra_xusb_padctl_legacy_remove(struct platform_device *pdev)
 	return err;
 }
 EXPORT_SYMBOL_GPL(tegra_xusb_padctl_legacy_remove);
+
+MODULE_AUTHOR("NVIDIA");
+MODULE_DESCRIPTION("NVIDIA Tegra XUSB pinctrl driver");
+MODULE_LICENSE("GPL v2");

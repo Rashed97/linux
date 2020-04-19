@@ -1,35 +1,36 @@
 # SPDX-License-Identifier: GPL-2.0-only
 config PINCTRL_TEGRA
-	bool
+	tristate
 	select PINMUX
 	select PINCONF
 
 config PINCTRL_TEGRA20
-	bool
+	tristate
 	select PINCTRL_TEGRA
 
 config PINCTRL_TEGRA30
-	bool
+	tristate
 	select PINCTRL_TEGRA
 
 config PINCTRL_TEGRA114
-	bool
+	tristate
 	select PINCTRL_TEGRA
 
 config PINCTRL_TEGRA124
-	bool
+	tristate
 	select PINCTRL_TEGRA
 
 config PINCTRL_TEGRA210
-	bool
+	tristate
 	select PINCTRL_TEGRA
 
 config PINCTRL_TEGRA194
-	bool
+	tristate
 	select PINCTRL_TEGRA
 
 config PINCTRL_TEGRA_XUSB
-	def_bool y if ARCH_TEGRA
+	tristate
+	default y if ARCH_TEGRA
 	select GENERIC_PHY
 	select PINCONF
 	select PINMUX

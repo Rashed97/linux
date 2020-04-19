@@ -849,3 +849,7 @@ int tegra_pinctrl_probe(struct platform_device *pdev,
 
 	return 0;
 }
+
+MODULE_AUTHOR("NVIDIA");
+MODULE_DESCRIPTION("NVIDIA Tegra pinctrl driver");
+MODULE_LICENSE("GPL v2");

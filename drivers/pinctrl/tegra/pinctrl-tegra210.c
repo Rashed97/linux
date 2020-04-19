@@ -1566,6 +1566,7 @@ static const struct of_device_id tegra210_pinctrl_of_match[] = {
 	{ .compatible = "nvidia,tegra210-pinmux", },
 	{ },
 };
+MODULE_DEVICE_TABLE(of, tegra210_pinctrl_of_match);
 
 static struct platform_driver tegra210_pinctrl_driver = {
 	.driver = {
@@ -1581,3 +1582,7 @@ static int __init tegra210_pinctrl_init(void)
 	return platform_driver_register(&tegra210_pinctrl_driver);
 }
 arch_initcall(tegra210_pinctrl_init);
+
+MODULE_AUTHOR("NVIDIA");
+MODULE_DESCRIPTION("NVIDIA Tegra210 pinctrl driver");
+MODULE_LICENSE("GPL v2");
