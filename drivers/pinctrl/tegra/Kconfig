@@ -24,6 +24,10 @@ config PINCTRL_TEGRA210
 	tristate
 	select PINCTRL_TEGRA
 
+config PINCTRL_TEGRA186
+	tristate
+	select PINCTRL_TEGRA
+
 config PINCTRL_TEGRA194
 	tristate
 	select PINCTRL_TEGRA
