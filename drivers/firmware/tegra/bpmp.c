@@ -6,6 +6,7 @@
 #include <linux/clk/tegra.h>
 #include <linux/genalloc.h>
 #include <linux/mailbox_client.h>
+#include <linux/module.h>
 #include <linux/of.h>
 #include <linux/of_address.h>
 #include <linux/of_device.h>
@@ -863,6 +864,7 @@ static const struct of_device_id tegra_bpmp_match[] = {
 #endif
 	{ }
 };
+MODULE_DEVICE_TABLE(of, tegra_bpmp_match);
 
 static struct platform_driver tegra_bpmp_driver = {
 	.driver = {
@@ -878,3 +880,6 @@ static int __init tegra_bpmp_init(void)
 	return platform_driver_register(&tegra_bpmp_driver);
 }
 core_initcall(tegra_bpmp_init);
+
+MODULE_DESCRIPTION("NVIDIA Tegra Boot and Power Management Processor driver");
+MODULE_LICENSE("GPL v2");
