@@ -149,6 +149,16 @@
 	/* SDMMC3 (SDIO) */
 	sdhci@3440000 {
 		status = "okay";
+
+		brcmf: wifi@1 {
+			compatible = "brcm,bcm4354-fmac", "brcm,bcm4329-fmac";
+			reg = <1>;
+
+			brcm,drive-strength = <10>;
+			interrupt-parent = <&gpio_aon>;
+			interrupts = <TEGRA186_AON_GPIO(FF, 3) 0x14>;
+			interrupt-names = "host-wake";
+		};
 	};
 
 	/* SDMMC4 (eMMC) */
