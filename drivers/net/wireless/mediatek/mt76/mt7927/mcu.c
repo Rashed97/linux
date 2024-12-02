@@ -1506,6 +1506,7 @@ mt7927_mcu_sta_eht_tlv(struct sk_buff *skb, struct ieee80211_link_sta *link_sta)
 		memcpy(eht->mcs_map_bw20, &mcs_map->only_20mhz, sizeof(eht->mcs_map_bw20));
 	memcpy(eht->mcs_map_bw80, &mcs_map->bw._80, sizeof(eht->mcs_map_bw80));
 	memcpy(eht->mcs_map_bw160, &mcs_map->bw._160, sizeof(eht->mcs_map_bw160));
+	memcpy(eht->mcs_map_bw320, &mcs_map->bw._320, sizeof(eht->mcs_map_bw320));
 }
 
 static void
@@ -2197,6 +2198,9 @@ void mt7927_mcu_bss_rlm_tlv(struct sk_buff *skb, struct mt76_phy *phy,
 		break;
 	case NL80211_CHAN_WIDTH_160:
 		req->bw = CMD_CBW_160MHZ;
+		break;
+	case NL80211_CHAN_WIDTH_320:
+		req->bw = CMD_CBW_320MHZ;
 		break;
 	case NL80211_CHAN_WIDTH_5:
 		req->bw = CMD_CBW_5MHZ;
@@ -2949,6 +2953,7 @@ int mt7927_mcu_set_channel_domain(struct mt76_phy *phy)
 				   * BW_20_40_80M	2
 				   * BW_20_40_80_160M	3
 				   * BW_20_40_80_8080M	4
+				   * BW_20_40_80_160_320M FIXME
 				   */
 			u8 bw_5g;
 			u8 bw_6g;
@@ -2966,7 +2971,7 @@ int mt7927_mcu_set_channel_domain(struct mt76_phy *phy)
 		.hdr = {
 			.bw_2g = 0,
 			.bw_5g = 3, /* BW_20_40_80_160M */
-			.bw_6g = 3,
+			.bw_6g = 3, /* FIXME: change to 320MHz */
 		},
 		.n_ch = {
 			.tag = cpu_to_le16(2),

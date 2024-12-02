@@ -12,9 +12,9 @@
 
 static const struct pci_device_id mt7927_pci_device_table[] = {
 	{ PCI_DEVICE(PCI_VENDOR_ID_MEDIATEK, 0x7927),
-		.driver_data = (kernel_ulong_t)MT7927_FIRMWARE_WM },
+		.driver_data = (kernel_ulong_t)MT7925_FIRMWARE_WM },
 	{ PCI_DEVICE(PCI_VENDOR_ID_MEDIATEK, 0x0717),
-		.driver_data = (kernel_ulong_t)MT7927_FIRMWARE_WM },
+		.driver_data = (kernel_ulong_t)MT7925_FIRMWARE_WM },
 	{ },
 };
 
@@ -587,8 +587,8 @@ static struct pci_driver mt7927_pci_driver = {
 module_pci_driver(mt7927_pci_driver);
 
 MODULE_DEVICE_TABLE(pci, mt7927_pci_device_table);
-MODULE_FIRMWARE(MT7927_FIRMWARE_WM);
-MODULE_FIRMWARE(MT7927_ROM_PATCH);
+MODULE_FIRMWARE(MT7925_FIRMWARE_WM);
+MODULE_FIRMWARE(MT7925_ROM_PATCH);
 MODULE_AUTHOR("Deren Wu <deren.wu@mediatek.com>");
 MODULE_AUTHOR("Lorenzo Bianconi <lorenzo@kernel.org>");
 MODULE_DESCRIPTION("MediaTek MT7927E (PCIe) wireless driver");
